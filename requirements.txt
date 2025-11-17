@@ -1,23 +1,23 @@
 #Requirements for DeepScent
 # Core Python dependencies
-pandas>=2.2.0
-numpy>=1.26.0
-scikit-learn>=1.5.0
-matplotlib>=3.9.0
-seaborn>=0.13.0
+pandas>=2.3.3
+numpy>=2.3.5
+scikit-learn>=1.7.2
+matplotlib>=3.10.7
+seaborn>=0.13.2
 
 # Cheminformatics and molecular descriptors
-rdkit-pypi>=2023.9.4
+rdkit>=2025.9.1
 
 # Data preprocessing and utilities
-tqdm>=4.66.0
-imbalanced-learn>=0.12.0
+tqdm>=4.67.1
+imbalanced-learn>=0.14.0
 
 # Visualization and dimensionality reduction
-plotly>=5.22.0
+plotly>=6.4.0
 
 # App interface (stretch goal)
-streamlit>=1.38.0
+streamlit>=1.51.0
 
 # Testing and linting
 pytest>=8.2.0
@@ -25,6 +25,6 @@ flake8>=7.0.0
 black>=24.4.0
 
 # Optional: for data download or API access
-requests>=2.32.0
-beautifulsoup4>=4.12.0
+requests>=2.32.5
+beautifulsoup4>=4.14.2
 
