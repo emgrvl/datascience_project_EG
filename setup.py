@@ -32,13 +32,13 @@ setup(
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
-        "Topic :: Scientific/Engineering :: Artificial Intelligence",
+        "Topic :: Scientific/Engineering :: Machine Learning",
         "Intended Audience :: Science/Research",
     ],
     entry_points={
         "console_scripts": [
-            "deepscent-train=src.model_training:main",
-            "deepscent-eval=src.evaluation:main",
+            "deepscent-train=src.train:main",
+            "deepscent-eval=src.evaluate:main",
         ],
     },
 )
