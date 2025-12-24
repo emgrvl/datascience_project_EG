@@ -1,5 +1,7 @@
-import pandas as pd
 import string
+import pandas as pd
+
+
 #standardize scent family names
 
 def normalize_scent(merged_df: pd.DataFrame) -> pd.DataFrame:
@@ -45,7 +47,8 @@ if __name__ == "__main__":
         'Tobacco Like': 'tobacco like',
         'Woody': 'woody'
     }
-    for key in scent_mappings:
+    
+    """for key in scent_mappings:
         if key in scent:
             return scent_mappings[key]
-    return 'other'
+    return 'other' """
