@@ -37,17 +37,26 @@ By leveraging cheminformatics data and statistical learning, this project seeks 
 ## **Repository Structure**
 
 ```
-ai-nose/
+datascience_project_EG/
 ├── README.md
 ├── PROPOSAL.md
 ├── requirements.txt
 ├── setup.py
 ├── src/
-│   ├── __init__.py
-│   ├── data_preprocessing.py        # Cleaning, merging, and feature extraction
-│   ├── descriptor_generation.py     # RDKit descriptor calculations
-│   ├── model_training.py            # ML pipeline (RF, SVM, etc.)
-│   ├── evaluation.py                # Metrics and visualizations
+│   ├── __init__.py                # Cleaning, merging, and feature extraction
+│   ├── data/  
+│        ├── load_data.py
+│        ├── prepocess.py
+│   ├── features/   
+│        ├── fingerprinting.py
+│        ├── rdkit_features.py    # RDKit descriptor calculations       
+│   ├── models/ 
+│        ├── evaluate.py          # Metrics and visualizations
+│        ├── predict.py
+│        ├── train.py             # ML pipeline (RF, SVM, etc.)
+│   ├── utils/
+│        ├── io.py
+│        ├── logging_cfg.py    
 │   └── visualization.py             # PCA, t-SNE, and feature plots
 ├── data/
 │   ├── raw_ifra-fig.csv/                         # Unprocessed datasets (FIG - IFRA)
