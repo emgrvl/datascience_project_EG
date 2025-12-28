@@ -70,7 +70,7 @@ def fetch_smiles_from_pubchem(cas_number: str, max_retries: int = 3) -> Optional
                 time.sleep(1)  # Wait before retry
                 continue
             else:
-                print(f"  Failed to fetch {cas_number}: {str(e)}")
+                # Silently skip failed fetches (expected for many CAS numbers)
                 return None
     
     return None
@@ -79,6 +79,8 @@ def fetch_smiles_from_pubchem(cas_number: str, max_retries: int = 3) -> Optional
 def add_smiles_to_fig(fig_df: pd.DataFrame, batch_size: int = 100, save_progress: bool = True) -> pd.DataFrame:
     """
     Add SMILES strings to FIG dataset by querying PubChem
+    
+    FIXED: Uses index assignment instead of append
     
     Args:
         fig_df: IFRA-FIG DataFrame
@@ -90,36 +92,48 @@ def add_smiles_to_fig(fig_df: pd.DataFrame, batch_size: int = 100, save_progress
     """
     if not PUBCHEM_AVAILABLE:
         print("⚠ PubChem library not available. Skipping SMILES fetching.")
-        fig_df['SMILES'] = None
-        return fig_df
+        fig_df_copy = fig_df.copy()
+        fig_df_copy['SMILES'] = None
+        return fig_df_copy
     
     print(f"\n🔍 Fetching SMILES from PubChem for {len(fig_df)} molecules...")
     print("This may take a while. Progress will be saved periodically.")
     
-    smiles_list = [None]*len(fig_df)
+    # FIXED: Pre-allocate list with exact size
+    smiles_list = [None] * len(fig_df)
     
-    for idx, row in fig_df.iterrows():
+    # FIXED: Use range(len()) instead of iterrows for proper indexing
+    for idx in range(len(fig_df)):
         if (idx + 1) % 10 == 0:
-            print(f"  Progress: {idx+1}/{len(fig_df)} molecules...", end='\r')
+            found_so_far = sum(1 for s in smiles_list[:idx+1] if s is not None)
+            print(f"  Progress: {idx+1}/{len(fig_df)} ({found_so_far} found)...", end='\r')
         
-        cas = row['CAS number']
+        cas = fig_df.iloc[idx]['CAS number']
         smiles = fetch_smiles_from_pubchem(cas)
-        smiles_list.append(smiles)
+        
+        # FIXED: Use assignment instead of append
+        smiles_list[idx] = smiles
         
         # Save progress periodically
         if save_progress and (idx + 1) % batch_size == 0:
             temp_df = fig_df.iloc[:idx+1].copy()
-            temp_df['SMILES'] = smiles_list
+            temp_df['SMILES'] = smiles_list[:idx+1]  # FIXED: Use slice
             temp_df.to_csv('/files/datascience_project_EG/data/fig_with_smiles_progress.csv', index=False)
-            print(f"\n  💾 Progress saved: {idx+1}/{len(fig_df)} molecules")
+            
+            found = sum(1 for s in smiles_list[:idx+1] if s is not None)
+            print(f"\n  💾 Progress saved: {idx+1}/{len(fig_df)} ({found} SMILES found)")
     
-    fig_df['SMILES'] = smiles_list
+    print()  # New line after progress
+    
+    # FIXED: Create copy and assign
+    fig_df_result = fig_df.copy()
+    fig_df_result['SMILES'] = smiles_list
     
     # Statistics
     found = sum(1 for s in smiles_list if s is not None)
     print(f"\n✓ SMILES found for {found}/{len(fig_df)} molecules ({found/len(fig_df)*100:.1f}%)")
     
-    return fig_df
+    return fig_df_result
 
 
 def load_processed_data(filepath: str = '/files/datascience_project_EG/data/processed_molecules.csv') -> pd.DataFrame:
@@ -146,6 +160,14 @@ if __name__ == "__main__":
     # Load IFRA data
     fig_df = load_ifra_fig()
     
-    #fetch SMILES 
-    fig_with_smiles = add_smiles_to_fig(fig_df)  
-    fig_with_smiles.to_csv('/files/datascience_project_EG/data/fig_with_smiles_sample.csv', index=False) #got 2149/3271 molecules with SMILES
+    # Test with first 10 molecules
+    print("\nTesting with first 10 molecules...")
+    test_df = fig_df.head(10)
+    fig_with_smiles = add_smiles_to_fig(test_df, save_progress=False)
+    
+    print("\nResults:")
+    print(fig_with_smiles[['CAS number', 'Principal name', 'SMILES']].head(10))
+    
+    # Uncomment to run on full dataset:
+    # fig_with_smiles = add_smiles_to_fig(fig_df)  
+    # fig_with_smiles.to_csv('/files/datascience_project_EG/data/fig_with_smiles.csv', index=False)
