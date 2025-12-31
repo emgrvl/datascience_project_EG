@@ -1,0 +1,55 @@
+======================================================================
+                    DEEPSCENT DATA ANALYSIS REPORT
+======================================================================
+
+DATASET OVERVIEW
+----------------------------------------------------------------------
+Total molecules: 2139
+Columns: ['CAS number', 'Principal name', 'Primary descriptor', 'Descriptor 2', 'Descriptor 3', 'fragrance_family', 'all_descriptors', 'SMILES']
+
+FRAGRANCE FAMILY DISTRIBUTION
+----------------------------------------------------------------------
+  floral                   :  464 ( 21.7%)
+  fruity                   :  428 ( 20.0%)
+  green                    :  223 ( 10.4%)
+  woody                    :  178 (  8.3%)
+  herbal                   :  168 (  7.9%)
+  citrus                   :  109 (  5.1%)
+  gourmand                 :   96 (  4.5%)
+  spicy                    :   63 (  2.9%)
+  aldehydic                :   55 (  2.6%)
+  musk like                :   53 (  2.5%)
+  food like                :   44 (  2.1%)
+  minty                    :   42 (  2.0%)
+  balsamic                 :   38 (  1.8%)
+  sulfurous                :   28 (  1.3%)
+  acidic                   :   20 (  0.9%)
+  aromatic                 :   19 (  0.9%)
+  earthy                   :   18 (  0.8%)
+  animal like              :   18 (  0.8%)
+  amber                    :   15 (  0.7%)
+  smoky                    :   13 (  0.6%)
+  powdery                  :   13 (  0.6%)
+  marine                   :   10 (  0.5%)
+  anisic                   :    9 (  0.4%)
+  tobacco like             :    8 (  0.4%)
+  ozonic                   :    7 (  0.3%)
+
+SMILES AVAILABILITY
+----------------------------------------------------------------------
+Molecules with SMILES: 2139/2139 (100.0%)
+
+MISSING VALUES
+----------------------------------------------------------------------
+  No missing values
+
+CLASS BALANCE ANALYSIS
+----------------------------------------------------------------------
+Smallest class: 7 molecules
+Largest class: 464 molecules
+Imbalance ratio: 66.3:1
+
+⚠ SEVERE class imbalance detected!
+  Recommendation: Use SMOTE or class weights in training
+
+======================================================================

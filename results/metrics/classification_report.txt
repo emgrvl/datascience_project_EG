@@ -1,0 +1,40 @@
+DEEPSCENT MODEL EVALUATION
+======================================================================
+
+Accuracy: 0.728
+Balanced Accuracy: 0.623
+F1-macro: 0.604
+
+               precision    recall  f1-score   support
+
+       acidic       0.77      1.00      0.87        20
+    aldehydic       0.70      0.69      0.70        55
+        amber       1.00      0.73      0.85        15
+  animal like       0.88      0.83      0.86        18
+       anisic       0.00      0.00      0.00         9
+     aromatic       0.56      0.74      0.64        19
+     balsamic       0.74      0.61      0.67        38
+camphoraceous       0.00      0.00      0.00         4
+       citrus       0.63      0.61      0.62       109
+       earthy       0.65      0.61      0.63        18
+       floral       0.69      0.81      0.75       464
+    food like       0.62      0.84      0.71        44
+       fruity       0.77      0.72      0.75       428
+     gourmand       0.81      0.68      0.74        96
+        green       0.83      0.61      0.71       223
+       herbal       0.67      0.57      0.61       168
+        honey       0.00      0.00      0.00         3
+       marine       0.73      0.80      0.76        10
+        minty       0.66      0.83      0.74        42
+    musk like       0.94      0.94      0.94        53
+       ozonic       0.00      0.00      0.00         7
+      powdery       0.67      0.77      0.71        13
+        smoky       0.58      0.85      0.69        13
+        spicy       0.71      0.75      0.73        63
+    sulfurous       0.77      0.96      0.86        28
+ tobacco like       0.00      0.00      0.00         8
+        woody       0.73      0.88      0.80       178
+
+     accuracy                           0.73      2146
+    macro avg       0.60      0.62      0.60      2146
+ weighted avg       0.72      0.73      0.72      2146
