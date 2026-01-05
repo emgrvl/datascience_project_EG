@@ -182,6 +182,6 @@ if __name__ == "__main__":
             print(f"Confidence: {result['confidence']:.1%}")
         
         print(f"\nMolecular Descriptors:")
-        for desc, value in list(result['descriptors'].items())[:5]:
+        for desc, value in list(result['descriptors'].items())[:17]:
             print(f"  {desc:20s}: {value:.2f}")
-        print(f"  ... and {len(result['descriptors'])-5} more")
+        #print(f"  ... and {len(result['descriptors'])-17} more") # if in fututre I add more descriptors and need to limit output
