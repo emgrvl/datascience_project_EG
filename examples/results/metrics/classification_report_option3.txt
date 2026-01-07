@@ -1,0 +1,22 @@
+DEEPSCENT - Classification Report
+Model: Gradient Boosting + Fingerprints
+================================================================================
+
+Test Accuracy: 0.273
+F1-macro: 0.185
+
+              precision    recall  f1-score   support
+
+      citrus       1.00      0.50      0.67         2
+      floral       0.00      0.00      0.00         1
+      fruity       0.50      0.50      0.50         2
+    gourmand       0.00      0.00      0.00         1
+       green       0.33      1.00      0.50         1
+      herbal       0.00      0.00      0.00         1
+       minty       0.00      0.00      0.00         1
+    oriental       0.00      0.00      0.00         1
+       woody       0.00      0.00      0.00         1
+
+    accuracy                           0.27        11
+   macro avg       0.20      0.22      0.19        11
+weighted avg       0.30      0.27      0.26        11

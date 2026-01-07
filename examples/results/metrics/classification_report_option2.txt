@@ -1,0 +1,22 @@
+DEEPSCENT - Classification Report
+Model: Random Forest - Descriptors Only
+================================================================================
+
+Test Accuracy: 0.182
+F1-macro: 0.111
+
+              precision    recall  f1-score   support
+
+      citrus       0.00      0.00      0.00         2
+      floral       0.00      0.00      0.00         1
+      fruity       1.00      0.50      0.67         2
+    gourmand       0.00      0.00      0.00         1
+       green       0.00      0.00      0.00         1
+      herbal       0.00      0.00      0.00         1
+       minty       0.20      1.00      0.33         1
+    oriental       0.00      0.00      0.00         1
+       woody       0.00      0.00      0.00         1
+
+    accuracy                           0.18        11
+   macro avg       0.13      0.17      0.11        11
+weighted avg       0.20      0.18      0.15        11

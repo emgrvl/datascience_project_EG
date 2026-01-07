@@ -1,0 +1,39 @@
+DEEPSCENT DEMO - Classification Report
+================================================================================
+
+Test Accuracy: 0.274
+F1-macro: 0.235
+
+               precision    recall  f1-score   support
+
+       acidic       1.00      1.00      1.00         2
+    aldehydic       0.20      0.50      0.29         2
+        amber       0.50      0.67      0.57         3
+  animal like       0.00      0.00      0.00         2
+       anisic       0.00      0.00      0.00         2
+     aromatic       0.00      0.00      0.00         2
+     balsamic       0.20      0.50      0.29         2
+camphoraceous       0.00      0.00      0.00         1
+       citrus       0.00      0.00      0.00         3
+       earthy       0.00      0.00      0.00         3
+       floral       0.50      0.50      0.50         2
+    food like       0.50      0.33      0.40         3
+       fruity       0.00      0.00      0.00         3
+     gourmand       0.00      0.00      0.00         2
+        green       0.33      0.50      0.40         2
+       herbal       0.00      0.00      0.00         2
+        honey       0.00      0.00      0.00         1
+       marine       0.00      0.00      0.00         3
+        minty       0.00      0.00      0.00         2
+    musk like       0.60      1.00      0.75         3
+       ozonic       0.00      0.00      0.00         2
+      powdery       0.00      0.00      0.00         2
+        smoky       1.00      0.33      0.50         3
+        spicy       0.20      0.33      0.25         3
+    sulfurous       1.00      1.00      1.00         2
+ tobacco like       0.00      0.00      0.00         2
+        woody       0.50      0.33      0.40         3
+
+     accuracy                           0.27        62
+    macro avg       0.24      0.26      0.23        62
+ weighted avg       0.26      0.27      0.25        62
