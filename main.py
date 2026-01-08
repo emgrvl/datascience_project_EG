@@ -784,4 +784,7 @@ def main():
 
 
 if __name__ == "__main__":
+    print("="*80)
+    print(" PLEASE MAKE SURE TO INSTALL THE REQUIREMENTS & 'pip install pubchempy' BEFORE RUNNING ")
+    print("="*80)
     main()

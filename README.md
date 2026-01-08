@@ -52,8 +52,10 @@ By leveraging cheminformatics data and statistical learning, this project seeks 
 ```
 datascience_project_EG/
 ├── README.md                          # Project documentation
+├── AI_USAGE.md
 ├── PROPOSAL.md
-├── requirements.txt                   # Python dependencies
+├── requirements.txt 
+├── main.py                            # Python dependencies
 ├── setup.py
 ├── pipeline.py
 ├── scr/
